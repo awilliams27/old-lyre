@@ -18,7 +18,8 @@ import FlatButton from 'material-ui/FlatButton';
 
 // import images
 import jens from './images/jens.jpg';
-import sierp from './images/Sierpinski Pyramid.png';
+import lifewillseeyounow from './images/lifewillseeyounow.jpg';
+import ruins from './images/ruins.jpg';
 
 // trying to do https://stackoverflow.com/questions/23258421/how-to-stop-app-that-node-js-express-npm-start
 // see package.json for the added 'stop' command
@@ -37,7 +38,7 @@ const muiTheme = getMuiTheme({
     //canvasColor: '#303030',
   },
   appBar: {
-    height: 100,
+    height: 90,
   },
   paper: {
     height: 200,
@@ -61,7 +62,7 @@ const divStyle = {
 cardStyle
 */
 const cardStyle = {
-  margin: '50px 0px 50px 0px'
+  margin: '30px 0px 30px 0px'
 };
 
 class App extends Component {
@@ -75,16 +76,15 @@ class App extends Component {
 
         <div style={divStyle}>
           <Card style={cardStyle}>
-            <CardHeader
-              title="reviewer name"
-              subtitle="subtitle"
-              avatar={jens}
-            />
-            <CardMedia
-              //overlay={<CardTitle title="review title" subtitle="review subtitle" />}
-            >
-              <img src={jens}/>
+            <CardMedia>
+              <img src={lifewillseeyounow}/>
             </CardMedia>
+            <CardHeader
+              style={{justifyContent:'right'}}
+              avatar={jens}
+              title="fens lake-man"
+              subtitle="subtitle"
+            />
             <CardTitle title="title" subtitle="subtitle" />
             <CardText>
               this is a scathing review of jens lekmans album Life Will See You Now
@@ -98,19 +98,17 @@ class App extends Component {
 
         <div style={divStyle}>
           <Card style={cardStyle}>
-            <CardHeader
-              title="reviewer name"
-              subtitle="subtitle"
-              avatar={sierp}
-            />
-            <CardMedia
-              //overlay={<CardTitle title="review title" subtitle="review subtitle" />}
-            >
-              <img src={sierp}/>
+            <CardMedia>
+              <img src={ruins}/>
             </CardMedia>
+            <CardHeader
+              title="name"
+              subtitle="subtitle"
+              avatar={ruins}
+            />
             <CardTitle title="title" subtitle="subtitle" />
             <CardText>
-              a loving essay in support of sierpinski pyramids.
+              ruins is good
             </CardText>
             <CardActions>
               <FlatButton label="Action 1" />
