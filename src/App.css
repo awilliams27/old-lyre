@@ -17,3 +17,9 @@
 .App-intro {
   font-size: large;
 }
+
+.App-card {
+  width: '40%';
+  margin: '0 auto';
+  justifyContent: 'center';
+}

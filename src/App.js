@@ -16,6 +16,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+// import images
+import jens from './images/jens.jpg';
+import sierp from './images/Sierpinski Pyramid.png';
+
 // trying to do https://stackoverflow.com/questions/23258421/how-to-stop-app-that-node-js-express-npm-start
 // see package.json for the added 'stop' command
 process.title = App;
@@ -30,6 +34,7 @@ const muiTheme = getMuiTheme({
     primary1Color: '#332222', // appbar background color
     textColor: '#000000',
     alternateTextColor: '#ffffff', // appbar text color
+    //canvasColor: '#303030',
   },
   appBar: {
     height: 100,
@@ -43,6 +48,22 @@ const muiTheme = getMuiTheme({
   },
 });
 
+/*
+divStyle
+*/
+const divStyle = {
+  width: '40%',
+  margin: '0 auto',
+  justifyContent: 'center'
+};
+
+/*
+cardStyle
+*/
+const cardStyle = {
+  margin: '50px 0px 50px 0px'
+};
+
 class App extends Component {
   render() {
     return (
@@ -52,28 +73,52 @@ class App extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
 
-        <div style={{width: '60%', margin: '0 auto'}}>
-          <Card style={{width:'100%', justifyContent: 'center'}}>
+        <div style={divStyle}>
+          <Card style={cardStyle}>
             <CardHeader
               title="reviewer name"
               subtitle="subtitle"
-              avatar="./images/jens.jpg"
+              avatar={jens}
             />
             <CardMedia
               //overlay={<CardTitle title="review title" subtitle="review subtitle" />}
             >
-              <img src="./images/jens.jpg" alt="./images/jens.jpg" />
+              <img src={jens}/>
             </CardMedia>
-            <CardTitle title="other title" subtitle="other subtitle" />
+            <CardTitle title="title" subtitle="subtitle" />
             <CardText>
-              this is a scathing review of jen's lekman's album Life Will See You Now
+              this is a scathing review of jens lekmans album Life Will See You Now
             </CardText>
             <CardActions>
-              <FlatButton label="Action1" />
-              <FlatButton label="Action2" />
+              <FlatButton label="Action 1" />
+              <FlatButton label="Action 2" />
             </CardActions>
           </Card>
         </div>
+
+        <div style={divStyle}>
+          <Card style={cardStyle}>
+            <CardHeader
+              title="reviewer name"
+              subtitle="subtitle"
+              avatar={sierp}
+            />
+            <CardMedia
+              //overlay={<CardTitle title="review title" subtitle="review subtitle" />}
+            >
+              <img src={sierp}/>
+            </CardMedia>
+            <CardTitle title="title" subtitle="subtitle" />
+            <CardText>
+              a loving essay in support of sierpinski pyramids.
+            </CardText>
+            <CardActions>
+              <FlatButton label="Action 1" />
+              <FlatButton label="Action 2" />
+            </CardActions>
+          </Card>
+        </div>
+
       </MuiThemeProvider>
     );
   }
