@@ -19,7 +19,15 @@
 }
 
 .App-card {
-  width: '40%';
-  margin: '0 auto';
-  justifyContent: 'center';
+  width: "40%";
+  margin: "0 auto";
+  justify-content: "center";
+}
+
+.review-card__header {
+  float: right;
+}
+
+.review-card__header > div {
+  padding-right: 0px !important;
 }
