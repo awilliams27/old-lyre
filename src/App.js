@@ -80,12 +80,12 @@ class App extends Component {
               <img src={lifewillseeyounow}/>
             </CardMedia>
             <CardHeader
-              style={{justifyContent:'right'}}
+              style={{justifyContent:'flex-end'}}
               avatar={jens}
               title="fens lake-man"
-              subtitle="subtitle"
+              subtitle="staff"
             />
-            <CardTitle title="title" subtitle="subtitle" />
+            <CardTitle title="Life Will See You Now" subtitle="Jens Lekman" />
             <CardText>
               this is a scathing review of jens lekmans album Life Will See You Now
             </CardText>
@@ -102,8 +102,8 @@ class App extends Component {
               <img src={ruins}/>
             </CardMedia>
             <CardHeader
-              title="name"
-              subtitle="subtitle"
+              title="Ruins"
+              subtitle="NOT Grouper"
               avatar={ruins}
             />
             <CardTitle title="title" subtitle="subtitle" />
