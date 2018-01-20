@@ -2,32 +2,42 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App-header{
+  position: fixed !important;
+  text-align: center !important;
 }
 
-.App-title {
-  font-size: large;
-  text-align: center;
+.App-header > h1 {
+  padding-left: 0px;
 }
 
-.App-intro {
-  font-size: large;
+.reviews-list {
+  width: 40%;
+  margin: 0 auto;
+  justify-content: center;
 }
 
-.App-card {
+.review-card {
   width: "40%";
-  margin: "0 auto";
-  justify-content: "center";
+  margin: 30px 0px 30px 0px;
+  justify-content: center;
+}
+
+.review-card__title {
+    display: inline-block !important;
 }
 
 .review-card__header {
   float: right;
+  display: inline-block;
 }
 
 .review-card__header > div {
-  padding-right: 0px !important;
+  padding-right: 20px !important;
+  padding-top: 5px !important;
+}
+
+// trying to right justify author/sub-author
+.review-card__header > div > span {
+  justify-content: right !important;
 }

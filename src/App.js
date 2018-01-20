@@ -40,96 +40,66 @@ More on Colors: http://www.material-ui.com/#/customization/colors
 const muiTheme = getMuiTheme({
   fontFamily: "Helvetica", //sans-serif',
   palette: {
-    primary1Color: "#332222", // appbar background color
+    primary1Color: "#331111", // appbar background color
     textColor: "#000000",
     alternateTextColor: "#ffffff" // appbar text color
-    //canvasColor: '#303030',
   },
-  appBar: {
-    height: 90
-  },
-  paper: {
-    height: 200,
-    width: "50%",
-    margin: 200,
-    textAlign: "center",
-    display: "inline-block"
-  }
 });
-
-/*
-divStyle
-*/
-const divStyle = {
-  width: "40%",
-  margin: "0 auto",
-  justifyContent: "center"
-};
-
-/*
-cardStyle
-*/
-const cardStyle = {
-  margin: "30px 0px 30px 0px"
-};
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <AppBar
+          className="App-header"
           title="lyre"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
 
-        <div style={divStyle}>
-          <Card style={cardStyle}>
+        {/* to add white space after floating/fixed appbar */}
+        <span> <br/><br/><br/></span>
+
+        <div className="reviews-list">
+          <Card className="review-card">
             <CardMedia>
               <img src={lifewillseeyounow} />
             </CardMedia>
             <CardHeader
-              style={{ justifyContent: "right" }}
-              avatar={jens}
+              className="review-card__header"
               title="fens lake-man"
               subtitle="staff"
+            >
+              <Avatar src={jens} />
+            </CardHeader>
+            <CardTitle
+              title="Life Will See You Now"
+              subtitle="Jens Lekman"
             />
-            <CardTitle title="Life Will See You Now" subtitle="Jens Lekman" />
             <CardText>
               this is a scathing review of jens lekmans album Life Will See You
               Now
             </CardText>
-            <CardActions>
-              <FlatButton label="Action 1" />
-              <FlatButton label="Action 2" />
-            </CardActions>
           </Card>
-        </div>
 
-        <div style={divStyle}>
-          <Card className="review-card" style={cardStyle}>
+          <Card className="review-card">
             <CardMedia>
               <img src={ruins} />
             </CardMedia>
 
             <CardTitle
-              style={{ display: "inline-block" }}
+              className="review-card__title"
               title="Ruins"
               subtitle="NOT Grouper"
             />
             <CardHeader
               className="review-card__header"
-              style={{ display: "inline-block" }}
               title="angry lydia lunch"
               subtitle="still angry"
             >
               <Avatar src={ruins} />
             </CardHeader>
-
-            <CardText>ruins is good</CardText>
-            <CardActions>
-              <FlatButton label="Action 1" />
-              <FlatButton label="Action 2" />
-            </CardActions>
+            <CardText>
+              ruins is good
+            </CardText>
           </Card>
         </div>
       </MuiThemeProvider>
