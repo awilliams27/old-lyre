@@ -43,41 +43,44 @@ const muiTheme = getMuiTheme({
     primary1Color: "#331111", // appbar background color
     textColor: "#000000",
     alternateTextColor: "#ffffff" // appbar text color
-  },
+  }
 });
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <AppBar
-          className="App-header"
-          title="lyre"
-        />
+        <AppBar className="App-header" title="lyre" />
 
         {/* to add white space after floating/fixed appbar */}
-        <span> <br/><br/><br/></span>
+        {/* <span>
+          {" "}
+          <br />
+          <br />
+          <br />
+        </span> */}
 
         <div className="reviews-list">
           <Card className="review-card">
-            <CardMedia>
-              <img src={lifewillseeyounow} />
-            </CardMedia>
-            <CardHeader
-              className="review-card__header"
-              title="fens lake-man"
-              subtitle="staff"
-            >
-              <Avatar src={jens} />
-            </CardHeader>
-            <CardTitle
-              title="Life Will See You Now"
-              subtitle="Jens Lekman"
-            />
-            <CardText>
-              this is a scathing review of jens lekmans album Life Will See You
-              Now
-            </CardText>
+            <div className="review-card-img">
+              <CardMedia>
+                <img src={lifewillseeyounow} />
+              </CardMedia>
+            </div>
+            <div className="review-card-details">
+              <CardHeader
+                className="review-card__header"
+                title="fens lake-man"
+                subtitle="staff"
+              >
+                <Avatar src={jens} />
+              </CardHeader>
+              <CardTitle title="Life Will See You Now" subtitle="Jens Lekman" />
+              <CardText>
+                this is a scathing review of jens lekmans album Life Will See
+                You Now
+              </CardText>
+            </div>
           </Card>
 
           <Card className="review-card">
@@ -97,9 +100,7 @@ class App extends Component {
             >
               <Avatar src={ruins} />
             </CardHeader>
-            <CardText>
-              ruins is good
-            </CardText>
+            <CardText>ruins is good</CardText>
           </Card>
         </div>
       </MuiThemeProvider>
