@@ -70,19 +70,4 @@ html {
     grid-column-start: 2;
     grid-column-end: 3;
   }
-
-  .review-card-details__content {
-    background: linear-gradient(black, white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  /* .review-card-details__content:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 30%;
-    height: 100%;
-
-  } */
 }
