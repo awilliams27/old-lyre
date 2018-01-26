@@ -30,7 +30,7 @@ class ReviewCard extends Component {
 
   render() {
     let notExpandedDetailContentStyle = {
-      maxHeight: "250px",
+      maxHeight: "40vh",
       overflow: "hidden",
       background: "linear-gradient(black, white)",
       webkitBackgroundClip: "text",
