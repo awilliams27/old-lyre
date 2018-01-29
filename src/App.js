@@ -44,6 +44,13 @@ class App extends Component {
       open: !this.state.open
     });
 
+  handleKeyPress = (event) => {
+    if(event.key === 'n'){
+      this.handleToggle
+      alert('n press')
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -53,6 +60,7 @@ class App extends Component {
             title="lyre"
             style={{ position: "fixed" }}
             onLeftIconButtonClick={this.handleToggle}
+            onKeyPress={this.handleKeyPress}
           />
           <Drawer
             docked={false}
@@ -61,22 +69,28 @@ class App extends Component {
             onRequestChange={this.handleToggle}
           >
             <MenuItem>
-              <Link to="/" onClick={this.handleToggle}>
-                Home
+              <Link to="/" className="drawerLink" onClick={this.handleToggle}>
+                home
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/reviews" onClick={this.handleToggle}>
+              <Link to="/reviews" className="drawerLink" onClick={this.handleToggle}>
                 reviews
               </Link>
             </MenuItem>
-            <MenuItem>
-              <Link to="/albumList" onClick={this.handleToggle}>
-                album list
+            <MenuItem onClick={this.props.handleToggle}>
+              <Link to="/albumList" className="drawerLink" onClick={this.handleToggle}>
+                lists
               </Link>
             </MenuItem>
           </Drawer>
-          <Route exact path="/" />
+          <Route exact path="/"
+            render={props => (
+              <div className="reviews-list">
+                <ReviewCard />
+              </div>
+            )}
+          />
           <Route
             path="/reviews"
             render={props => (
@@ -85,7 +99,14 @@ class App extends Component {
               </div>
             )}
           />
-          <Route path="/albumList" render={props => <AlbumList />} />
+          <Route
+            path="/albumList"
+            render={props => (
+              <div className="reviews-list">
+                <AlbumList />
+              </div>
+              )}
+            />
         </MuiThemeProvider>
       </Router>
     );

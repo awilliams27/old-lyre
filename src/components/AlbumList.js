@@ -34,7 +34,8 @@ class AlbumList extends Component {
           status: "staff"
         },
         albumList: {
-          name: "Last years",
+          name: "2017",
+          subName: "Best Albums",
           albums: [
             "A cros looked at me - Mount eerie",
             "Capacity - Big Thief",
@@ -48,7 +49,8 @@ class AlbumList extends Component {
           status: "staff"
         },
         albumList: {
-          name: "Last years",
+          name: "2017",
+          subName: "Best Albums",
           albums: [
             "dirty projects - s.t.",
             "rocket - sandy alex g",
@@ -65,6 +67,7 @@ class AlbumList extends Component {
       });
       return (
         <Card className="review-card">
+          <CardTitle title={list.albumList.name} subtitle={list.albumList.subName} />
           <CardHeader
             className="review-card__header"
             title={list.user.name}
@@ -72,7 +75,6 @@ class AlbumList extends Component {
           >
             <Avatar src={""} />
           </CardHeader>
-          <CardTitle title={list.albumList.name} subtitle={list.user.status} />
           <CardText>
             <ul>{albumList}</ul>
           </CardText>

@@ -43,7 +43,7 @@ class ReviewCard extends Component {
       <Card className="review-card">
         <div className="review-card-img">
           <CardMedia>
-            <img src={lifewillseeyounow} style={{ maxHeight: "500px" }} />
+            <img src={lifewillseeyounow} style={{ maxWidth: "500px", maxHeight: "500px" }} />
           </CardMedia>
         </div>
         <div className="review-card-details">
