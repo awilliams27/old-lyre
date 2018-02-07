@@ -10,6 +10,8 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 import FlatButton from "material-ui/FlatButton";
 import ReviewCard from "./components/ReviewCard";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 import AlbumList from "./components/AlbumList";
@@ -44,20 +46,27 @@ class App extends Component {
       open: !this.state.open
     });
 
-  handleKeyPress = (event) => {
-    if(event.key === 'n'){
-      this.handleToggle
-      alert('n press')
+  handleKeyPress = event => {
+    if (event.key === "n") {
+      this.handleToggle;
+      alert("n press");
     }
-  }
+  };
 
   render() {
+    let linkStyle = {
+      display: "block",
+      padding: "0px 16px"
+    };
+    let menuItemStyle = {
+      padding: "0"
+    };
     return (
       <Router>
         <MuiThemeProvider muiTheme={muiTheme}>
           <AppBar
             className="App-header"
-            title="lyre"
+            title={<Link to="/">lyre</Link>}
             style={{ position: "fixed" }}
             onLeftIconButtonClick={this.handleToggle}
             onKeyPress={this.handleKeyPress}
@@ -68,23 +77,40 @@ class App extends Component {
             open={this.state.open}
             onRequestChange={this.handleToggle}
           >
-            <MenuItem>
-              <Link to="/" className="drawerLink" onClick={this.handleToggle}>
+            <MenuItem menuItemStyle={menuItemStyle}>
+              <Link
+                style={linkStyle}
+                to="/"
+                className="drawerLink"
+                onClick={this.handleToggle}
+              >
                 home
               </Link>
             </MenuItem>
-            <MenuItem>
-              <Link to="/reviews" className="drawerLink" onClick={this.handleToggle}>
+            <MenuItem menuItemStyle={menuItemStyle}>
+              <Link
+                style={linkStyle}
+                to="/reviews"
+                className="drawerLink"
+                onClick={this.handleToggle}
+              >
                 reviews
               </Link>
             </MenuItem>
-            <MenuItem onClick={this.props.handleToggle}>
-              <Link to="/albumList" className="drawerLink" onClick={this.handleToggle}>
+            <MenuItem menuItemStyle={menuItemStyle}>
+              <Link
+                style={linkStyle}
+                to="/albumList"
+                className="drawerLink"
+                onClick={this.handleToggle}
+              >
                 lists
               </Link>
             </MenuItem>
           </Drawer>
-          <Route exact path="/"
+          <Route
+            exact
+            path="/"
             render={props => (
               <div className="reviews-list">
                 <ReviewCard />
@@ -105,8 +131,8 @@ class App extends Component {
               <div className="reviews-list">
                 <AlbumList />
               </div>
-              )}
-            />
+            )}
+          />
         </MuiThemeProvider>
       </Router>
     );

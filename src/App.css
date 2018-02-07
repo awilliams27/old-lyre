@@ -6,7 +6,16 @@ html {
 .App {
   text-align: center;
 }
+a {
+  user-select: none;
+  text-decoration: none;
+  color: white;
+}
 
+a:visited {
+  text-decoration: none;
+  color: white;
+}
 .App-header {
   top: 0;
   text-align: center !important;
@@ -15,16 +24,11 @@ html {
   to make text unselectable
   https://stackoverflow.com/questions/69430/is-there-a-way-to-make-text-unselectable-on-an-html-page
   */
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
 
   /*
     Introduced in IE 10.
     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
   */
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .App-header > h1 {
@@ -52,7 +56,7 @@ html {
 .review-card__header {
   float: right;
   display: inline-block;
-  padding-top:20px !important;
+  padding-top: 20px !important;
 }
 
 .review-card__header > div {
@@ -90,5 +94,4 @@ html {
   .review-card-details__content {
     font-size: 16px !important;
   }
-
 }
