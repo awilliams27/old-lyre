@@ -1,0 +1,15 @@
+/* album-cards */
+
+@media only screen and (min-width: 800px) {
+  .album-cards.review-card > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+
+  .album-list {
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

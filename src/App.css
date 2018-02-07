@@ -60,31 +60,14 @@ a:visited {
   padding-top: 20px !important;
 }
 
-.review-card__header > div {
+.review-card__header > div:first-of-type {
   padding-right: 10px !important;
   padding-top: 5px !important;
 }
 
 @media only screen and (min-width: 800px) {
-  /* tablet and desktop style for sentence fade on review: use this example https://codepen.io/alexwilliams567/pen/Rxzmrp */
   .reviews-list {
     width: 75%;
-  }
-
-  .review-card > div {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    grid-column-gap: 10px;
-  }
-
-  .review-card-img {
-    grid-column-start: 1;
-    grid-column-end: 2;
-  }
-
-  .review-card-details {
-    grid-column-start: 2;
-    grid-column-end: 3;
   }
 
   .review-card-details__content {

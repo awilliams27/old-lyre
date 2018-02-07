@@ -9,6 +9,7 @@ import {
 } from "material-ui/Card";
 
 import Avatar from "material-ui/Avatar";
+import "../css/album-list.css";
 
 class AlbumList extends Component {
   constructor(props) {
@@ -29,59 +30,67 @@ class AlbumList extends Component {
   render() {
     let mockDataLists = [
       {
-        user: {
-          name: "Nico",
-          status: "staff"
-        },
-        albumList: {
-          name: "2017",
-          subName: "Best Albums",
-          albums: [
-            "A cros looked at me - Mount eerie",
-            "Capacity - Big Thief",
-            "life will you seee you now - jans"
-          ]
-        }
+        name: "Nico",
+        status: "staff",
+        listsBuilt: [
+          {
+            name: "2017",
+            subName: "Best Albums",
+            albums: [
+              "A cros looked at me - Mount eerie",
+              "Capacity - Big Thief",
+              "life will you seee you now - jans"
+            ]
+          }
+        ]
       },
       {
-        user: {
-          name: "Alex",
-          status: "staff"
-        },
-        albumList: {
-          name: "2017",
-          subName: "Best Albums",
-          albums: [
-            "dirty projects - s.t.",
-            "rocket - sandy alex g",
-            "the ooz - king krule"
-          ]
-        }
+        name: "Alex",
+        status: "staff",
+        listsBuilt: [
+          {
+            name: "2017",
+            subName: "Best Albums",
+            albums: [
+              "A cros looked at me - Mount eerie",
+              "Capacity - Big Thief",
+              "life will you seee you now - jans"
+            ]
+          }
+        ]
       }
     ];
-    let albumCards = mockDataLists.map(list => {
-      console.log(list);
-      console.log(list.user.name);
-      let albumList = list.albumList.albums.map(album => {
-        return <li>{album}</li>;
+    let listByUsers = mockDataLists.map(user => {
+      let cardsByUser = user.listsBuilt.map((userList, i) => {
+        let albumList = userList.albums.map((album, i) => {
+          return <li key={i}>{album}</li>;
+        });
+        return (
+          <Card key={i} className="album-cards review-card">
+            <CardTitle
+              title={userList.name}
+              subtitle={userList.subName}
+              style={{ display: "inline-block" }}
+            />
+            <CardHeader
+              className="review-card__header"
+              title={user.name}
+              subtitle={user.status}
+              style={{ textAlign: "right" }}
+            >
+              <Avatar src={""} />
+            </CardHeader>
+            <CardText className="album-list">
+              <ul>{albumList}</ul>
+              <ul>{albumList}</ul>
+              <ul>{albumList}</ul>
+            </CardText>
+          </Card>
+        );
       });
-      return (
-        <Card className="review-card">
-          <CardTitle title={list.albumList.name} subtitle={list.albumList.subName} />
-          <CardHeader
-            className="review-card__header"
-            title={list.user.name}
-            subtitle={list.user.status}
-          >
-            <Avatar src={""} />
-          </CardHeader>
-          <CardText>
-            <ul>{albumList}</ul>
-          </CardText>
-        </Card>
-      );
+      return cardsByUser;
     });
-    return <React.Fragment>{albumCards}</React.Fragment>;
+    return <React.Fragment>{listByUsers}</React.Fragment>;
   }
 }
 

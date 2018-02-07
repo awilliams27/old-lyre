@@ -9,6 +9,7 @@ import {
 } from "material-ui/Card";
 
 import Avatar from "material-ui/Avatar";
+import "../css/review-card.css";
 
 // import images
 import jens from "../images/jens.jpg";
@@ -33,17 +34,25 @@ class ReviewCard extends Component {
       maxHeight: "40vh",
       overflow: "hidden",
       background: "linear-gradient(black, white)",
-      webkitBackgroundClip: "text",
-      webkitTextFillColor: "transparent"
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent"
     };
     let expandedDetailContentStyle = {
       maxHeight: "100%"
     };
     return (
-      <Card className="review-card">
+      <Card className="review-cards review-card">
         <div className="review-card-img">
           <CardMedia>
-            <img src={lifewillseeyounow} style={{minWidth: "500px", maxWidth: "500px", minHeight:"500px", maxHeight: "500px" }} />
+            <img
+              src={lifewillseeyounow}
+              style={{
+                minWidth: "500px",
+                maxWidth: "500px",
+                minHeight: "500px",
+                maxHeight: "500px"
+              }}
+            />
           </CardMedia>
         </div>
         <div className="review-card-details">
@@ -51,6 +60,7 @@ class ReviewCard extends Component {
             className="review-card__header"
             title="fens lake-man"
             subtitle="staff"
+            style={{ paddingRight: "10px", paddingTop: "10px" }}
           >
             <Avatar src={jens} />
           </CardHeader>

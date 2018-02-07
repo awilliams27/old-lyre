@@ -58,79 +58,78 @@ class App extends Component {
       display: "block",
       padding: "0px 16px"
     };
-    let menuItemStyle = {
-      padding: "0"
-    };
     return (
       <Router>
         <MuiThemeProvider muiTheme={muiTheme}>
-          <AppBar
-            className="App-header"
-            title={<Link to="/" style={{color:'white'}}>lyre</Link>}
-            style={{ position: "fixed" }}
-            onLeftIconButtonClick={this.handleToggle}
-            onKeyPress={this.handleKeyPress}
-          />
-          <Drawer
-            docked={false}
-            width={200}
-            open={this.state.open}
-            onRequestChange={this.handleToggle}
-            className="drawer"
-          >
-            <MenuItem menuItemStyle={menuItemStyle}>
-              <Link
-                style={linkStyle}
-                to="/"
-                onClick={this.handleToggle}
-              >
-                home
-              </Link>
-            </MenuItem>
-            <MenuItem menuItemStyle={menuItemStyle}>
-              <Link
-                style={linkStyle}
-                to="/reviews"
-                onClick={this.handleToggle}
-              >
-                reviews
-              </Link>
-            </MenuItem>
-            <MenuItem menuItemStyle={menuItemStyle}>
-              <Link
-                style={linkStyle}
-                to="/albumList"
-                onClick={this.handleToggle}
-              >
-                lists
-              </Link>
-            </MenuItem>
-          </Drawer>
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <div className="reviews-list">
-                <ReviewCard />
-              </div>
-            )}
-          />
-          <Route
-            path="/reviews"
-            render={props => (
-              <div className="reviews-list">
-                <ReviewCard />
-              </div>
-            )}
-          />
-          <Route
-            path="/albumList"
-            render={props => (
-              <div className="reviews-list">
-                <AlbumList />
-              </div>
-            )}
-          />
+          <React.Fragment>
+            <AppBar
+              className="App-header"
+              title={
+                <Link to="/" style={{ color: "white" }}>
+                  lyre
+                </Link>
+              }
+              style={{ position: "fixed" }}
+              onLeftIconButtonClick={this.handleToggle}
+              onKeyPress={this.handleKeyPress}
+            />
+            <Drawer
+              docked={false}
+              width={200}
+              open={this.state.open}
+              onRequestChange={this.handleToggle}
+              className="drawer"
+            >
+              <MenuItem>
+                <Link style={linkStyle} to="/" onClick={this.handleToggle}>
+                  home
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={linkStyle}
+                  to="/reviews"
+                  onClick={this.handleToggle}
+                >
+                  reviews
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  style={linkStyle}
+                  to="/albumList"
+                  onClick={this.handleToggle}
+                >
+                  lists
+                </Link>
+              </MenuItem>
+            </Drawer>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <div className="reviews-list">
+                  <ReviewCard />
+                </div>
+              )}
+            />
+            <Route
+              path="/reviews"
+              render={props => (
+                <div className="reviews-list">
+                  <ReviewCard />
+                </div>
+              )}
+            />
+            <Route
+              path="/albumList"
+              render={props => (
+                <div className="reviews-list">
+                  <AlbumList />
+                </div>
+              )}
+            />
+          </React.Fragment>
         </MuiThemeProvider>
       </Router>
     );

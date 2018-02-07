@@ -1,0 +1,19 @@
+/*  review-cards */
+
+@media only screen and (min-width: 800px) {
+  .review-cards.review-card > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+
+  .review-cards .review-card-img {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .review-cards .review-card-details {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+}
