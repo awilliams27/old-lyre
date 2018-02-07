@@ -32,7 +32,7 @@ html {
 }
 
 .reviews-list {
-  width: 40%;
+  width: 95%;
   margin: 0 auto;
   justify-content: center;
 }
@@ -65,7 +65,7 @@ html {
   color: black;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   /* tablet and desktop style for sentence fade on review: use this example https://codepen.io/alexwilliams567/pen/Rxzmrp */
   .reviews-list {
     width: 75%;
