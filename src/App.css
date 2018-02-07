@@ -65,11 +65,6 @@ a:visited {
   padding-top: 5px !important;
 }
 
-.drawerLink {
-  text-decoration: none;
-  color: black;
-}
-
 @media only screen and (min-width: 800px) {
   /* tablet and desktop style for sentence fade on review: use this example https://codepen.io/alexwilliams567/pen/Rxzmrp */
   .reviews-list {

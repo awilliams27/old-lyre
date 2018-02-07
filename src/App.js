@@ -82,7 +82,6 @@ class App extends Component {
               <Link
                 style={linkStyle}
                 to="/"
-                className="drawerLink"
                 onClick={this.handleToggle}
               >
                 home
@@ -92,7 +91,6 @@ class App extends Component {
               <Link
                 style={linkStyle}
                 to="/reviews"
-                className="drawerLink"
                 onClick={this.handleToggle}
               >
                 reviews
@@ -102,7 +100,6 @@ class App extends Component {
               <Link
                 style={linkStyle}
                 to="/albumList"
-                className="drawerLink"
                 onClick={this.handleToggle}
               >
                 lists
