@@ -66,7 +66,7 @@ class App extends Component {
         <MuiThemeProvider muiTheme={muiTheme}>
           <AppBar
             className="App-header"
-            title={<Link to="/">lyre</Link>}
+            title={<Link to="/" style={{color:'white'}}>lyre</Link>}
             style={{ position: "fixed" }}
             onLeftIconButtonClick={this.handleToggle}
             onKeyPress={this.handleKeyPress}
@@ -76,6 +76,7 @@ class App extends Component {
             width={200}
             open={this.state.open}
             onRequestChange={this.handleToggle}
+            className="drawer"
           >
             <MenuItem menuItemStyle={menuItemStyle}>
               <Link

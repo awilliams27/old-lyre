@@ -9,13 +9,14 @@ html {
 a {
   user-select: none;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 a:visited {
   text-decoration: none;
-  color: white;
+  color: black;
 }
+
 .App-header {
   top: 0;
   text-align: center !important;
