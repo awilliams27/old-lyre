@@ -27,6 +27,22 @@ class AlbumList extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getAllLists().catch(resp => {
+      console.error(resp);
+    });
+  }
+
+  getAllLists = async () => {
+    console.log("sending fetch");
+    const response = await fetch(`http://127.0.0.1:3000/api/getByList`);
+    const body = await response.json();
+
+    console.log(body);
+
+    return body;
+  };
+
   render() {
     let mockDataLists = [
       {
