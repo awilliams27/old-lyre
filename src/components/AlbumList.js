@@ -11,19 +11,13 @@ import {
 import Avatar from "material-ui/Avatar";
 import "../css/album-list.css";
 
+import db from "../firestore.js";
+
 class AlbumList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        name: "",
-        picturePath: "",
-        status: ""
-      },
-      albumList: {
-        name: "",
-        albums: []
-      }
+      albumLists: []
     };
   }
 
@@ -34,77 +28,51 @@ class AlbumList extends Component {
   }
 
   getAllLists = async () => {
-    console.log("sending fetch");
-    const response = await fetch(`http://127.0.0.1:3000/api/getByList`);
-    const body = await response.json();
+    let albumLists = [];
+    db.collection("lists")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          albumLists.push(doc.data());
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
-    console.log(body);
-
-    return body;
+    console.log(albumLists);
+    this.setState({
+      albumLists: albumLists
+    });
   };
 
   render() {
-    let mockDataLists = [
-      {
-        name: "Nico",
-        status: "staff",
-        listsBuilt: [
-          {
-            name: "2017",
-            subName: "Best Albums",
-            albums: [
-              "A cros looked at me - Mount eerie",
-              "Capacity - Big Thief",
-              "life will you seee you now - jans"
-            ]
-          }
-        ]
-      },
-      {
-        name: "Alex",
-        status: "staff",
-        listsBuilt: [
-          {
-            name: "2017",
-            subName: "Best Albums",
-            albums: [
-              "A cros looked at me - Mount eerie",
-              "Capacity - Big Thief",
-              "life will you seee you now - jans"
-            ]
-          }
-        ]
-      }
-    ];
-    let listByUsers = mockDataLists.map(user => {
-      let cardsByUser = user.listsBuilt.map((userList, i) => {
-        let albumList = userList.albums.map((album, i) => {
-          return <li key={i}>{album}</li>;
-        });
-        return (
-          <Card key={i} className="album-cards review-card">
-            <CardTitle
-              title={userList.name}
-              subtitle={userList.subName}
-              style={{ display: "inline-block" }}
-            />
-            <CardHeader
-              className="review-card__header"
-              title={user.name}
-              subtitle={user.status}
-              style={{ textAlign: "right" }}
-            >
-              <Avatar src={""} />
-            </CardHeader>
-            <CardText className="album-list">
-              <ul>{albumList}</ul>
-              <ul>{albumList}</ul>
-              <ul>{albumList}</ul>
-            </CardText>
-          </Card>
-        );
+    let listByUsers = this.state.albumLists.map((user, i) => {
+      let albumList = user.albums.map((album, i) => {
+        return <li key={i}>{album.artist} - {album.title}</li>;
       });
-      return cardsByUser;
+      return (
+        <Card key={i} className="album-cards review-card">
+          <CardTitle
+            title={user.listname}
+            subtitle={user.listsubname}
+            style={{ display: "inline-block" }}
+          />
+          <CardHeader
+            className="review-card__header"
+            title={user.writer}
+            subtitle={user.status}
+            style={{ textAlign: "right" }}
+          >
+            <Avatar src={""} />
+          </CardHeader>
+          <CardText className="album-list">
+            <ul>{albumList}</ul>
+            <ul>{albumList}</ul>
+            <ul>{albumList}</ul>
+          </CardText>
+        </Card>
+      );
     });
     return <React.Fragment>{listByUsers}</React.Fragment>;
   }
