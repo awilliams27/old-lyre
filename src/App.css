@@ -20,16 +20,6 @@ a:visited {
 .App-header {
   top: 0;
   text-align: center !important;
-
-  /*
-  to make text unselectable
-  https://stackoverflow.com/questions/69430/is-there-a-way-to-make-text-unselectable-on-an-html-page
-  */
-
-  /*
-    Introduced in IE 10.
-    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-  */
 }
 
 .App-header > h1 {
