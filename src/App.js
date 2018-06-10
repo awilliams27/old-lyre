@@ -1,5 +1,7 @@
-/*Jan 15 2018
-lyre website*/
+/*
+Jan 15 2018
+lyre website
+*/
 
 import React, { Component } from "react";
 import "./App.css";
