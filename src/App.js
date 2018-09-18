@@ -31,7 +31,8 @@ const muiTheme = getMuiTheme({
   palette: {
     primary1Color: "#331111", // appbar background color
     textColor: "#000000",
-    alternateTextColor: "#ffffff" // appbar text color
+    alternateTextColor: "#ffffff", // appbar text color
+    //canvasColor: "#775656"
   }
 });
 
